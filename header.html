@@ -1,0 +1,239 @@
+<div id="m-hd">
+    <div id="top">
+        <div class="wp2">
+            <ul>
+                <!-- <li>股票代码：{$seo.gupiao}</li> -->
+                <li>
+                <if condition="$_SESSION['jtadmin'] eq ''">
+                    <a href="logins.html">登录</a>
+                    |
+                    <a href="registereds.html">注册</a>
+                <else/>
+                    <a href="javascript:;">欢迎您：{$_SESSION['jtadmin']}</a>
+                    |
+                    <a href="javascript:;" class="jttuichu">退出</a>
+                    
+                </if>
+                </li>
+                <!-- <li>
+                    <a href="/">CH</a>
+                    |
+                    <a href="/en">EN</a>
+                </li> -->
+                <li>
+                    <form action="" method="post" name="headform">
+                        <div class="inp">
+                            <input type="text" name="headtitle" id="headtitle" placeholder="请输入产品名称" <if condition="$headtitle neq ''"> value="{$headtitle}"</if>>
+                            <button id="headsub"></button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="hd">
+        <div class="wp2">
+            <a href="indexs.html" class="logo"><img src="{$seo.pic}" alt=""></a>
+
+            <ul class="nav">
+                <li <if condition="$msg eq '首页'">class='on'</if>>
+                    <a href="indexs.html" class='a1'><em></em></a>
+                </li>
+                <li <if condition="$msg eq '仪器'">class='on'</if>>
+                    <i></i>
+                    <a href="yqxxs.html" class="a1">仪器选型</a>
+                    <div class="pop">
+                        <div class="wp">
+                            <div class='box'>
+                                <h3>按测试参数及仪器种类分:</h3>
+                                <dl class='imgtxt'>
+                                <volist name="yqxxcs" id="vo">
+                                    <dd>
+                                        <a href="yqxxs.html?cs={$vo.id}&ly={$ly}&gn={$gn}">
+                                            <div class="img">
+                                                <img class='i1' src="{$vo.pic1}" alt="">
+                                                <img class='i2' src="{$vo.pic}" alt="">
+                                            </div>
+                                            <p>{$vo.title}</p>
+                                        </a>
+                                    </dd>
+                                </volist>    
+                                </dl>
+                                <h3>按仪器功能分:</h3>
+                                <dl class='imgtxt'>
+                                <volist name="yqxxgn" id="vo">
+                                    <dd>
+                                        <a href="yqxxs.html?gn={$vo.id}&ly={$ly}&cs={$cs}">
+                                            <div class="img">
+                                                <img class='i1' src="{$vo.pic1}" alt="">
+                                                <img class='i2' src="{$vo.pic}" alt="">
+                                            </div>
+                                            <p>{$vo.title}</p>
+                                        </a>
+                                    </dd>
+                                </volist>   
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li <if condition="$msg eq '测试'">class='on'</if>>
+                    <i></i>
+                    <a href="csyys.html" class="a1">测试应用</a>
+                    <div class="pop">
+                        <div class="wp">
+                            <div class='box'>
+                                <h3>测试应用</h3>
+                                <dl class='imgtxt'>
+                                <volist name="csyyfl" id="vo">
+                                    <dd>
+                                        <a href="csyys{$vo.id}.html">
+                                            <div class="img">
+                                                <img class='i1' src="{$vo.pic1}" alt="">
+                                                <img class='i2' src="{$vo.pic}" alt="">
+                                            </div>
+                                            <p>{$vo.title}</p>
+                                        </a>
+                                    </dd>
+                                </volist>   
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li <if condition="$msg eq '服务'">class='on'</if>>
+                    <i></i>
+                    <a href="fwzc_cpzls{$zlxzdh.0.id}.html" class="a1">服务与支持</a>
+                    <div class="pop">
+                        <div class="wp">
+                            <div class="box">
+                                <h3>服务与支持</h3>
+                                <dl class="link">
+                                    <dd>
+                                        <h4>下载中心</h4>
+                                    <volist name="zlxzdh" id="vo">
+                                        <p><a href="fwzc_cpzls{$vo.id}.html">{$vo.title}</a></p>
+                                    </volist>
+                                    </dd>
+                                    <dd>
+                                        <h4>视频中心</h4>
+                                    <volist name="spzxdh" id="vo">
+                                        <p><a href="qyxcs{$vo.id}.html">{$vo.title}</a></p>
+                                    </volist>
+                                       
+                                    </dd>
+                                    <dd>
+                                        <h4>售后服务</h4>
+                                        <p><a href="shfws.html#shfw1">售后承诺</a></p>
+                                        <p><a href="shfws.html#shfw2">售后流程</a></p>
+                                        <p><a href="shfws.html#shfw3">售后方式</a></p>
+                                    </dd>
+                                    <dd>
+                                        <h4>技术支持</h4>
+                                        <p><a href="cjwts.html">常见问题</a></p>
+                                        <p><a href="qqbjs.html">请求报价</a></p>
+                                        <p><a href="cjwts.html">技术咨询</a></p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li <if condition="$msg eq '活动'">class='on'</if>>
+                    <i></i>
+                    <a href="hdyxxs{$hdyxxdh.0.id}.html" class="a1">活动与学习</a>
+                    <div class="pop">
+                        <div class="wp">
+                            <div class='box'>
+                                <h3>活动与学习</h3>
+                                <dl class='imgtxt'>
+                                <volist name="hdyxxdh" id="vo">
+                                    <dd>
+                                        <a href="hdyxxs{$vo.id}.html">
+                                            <div class="img">
+                                                <img class='i1' src="{$vo.pic1}" alt="">
+                                                <img class='i2' src="{$vo.pic}" alt="">
+                                            </div>
+                                            <p>{$vo.title}</p>
+                                        </a>
+                                    </dd>
+                                </volist>    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li <if condition="$msg eq '关于'">class='on'</if>>
+                    <i></i>
+                    <a href="abouts.html" class="a1">关于建通</a>
+                    <div class="pop">
+                        <div class="wp">
+                            <div class='box'>
+                                <h3>关于建通</h3>
+                                <dl class='imgtxt'>
+                                    <dd>
+                                        <a href="abouts.html#about1">
+                                            <div class="img">
+                                                <img class='i1' src="/Public/home/images/icn_img1.png" alt="">
+                                                <img class='i2' src="/Public/home/images/icn_img1_on.png" alt="">
+                                            </div>
+                                            <p>公司简介</p>
+                                        </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="abouts.html#about2">
+                                            <div class="img">
+                                                <img class='i1' src="/Public/home/images/icn_img2.png" alt="">
+                                                <img class='i2' src="/Public/home/images/icn_img2_on.png" alt="">
+                                            </div>
+                                            <p>发展历史</p>
+                                        </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="abouts.html#about3">
+                                            <div class="img">
+                                                <img class='i1' src="/Public/home/images/icn_img3.png" alt="">
+                                                <img class='i2' src="/Public/home/images/icn_img3_on.png" alt="">
+                                            </div>
+                                            <p>企业文化</p>
+                                        </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="abouts.html#about4">
+                                            <div class="img">
+                                                <img class='i1' src="/Public/home/images/icn_img4.png" alt="">
+                                                <img class='i2' src="/Public/home/images/icn_img4_on.png" alt="">
+                                            </div>
+                                            <p>加入我们</p>
+                                        </a>
+                                    </dd>
+                                    <dd>
+                                        <a href="abouts.html#about5">
+                                            <div class="img">
+                                                <img class='i1' src="/Public/home/images/icn_img5.png" alt="">
+                                                <img class='i2' src="/Public/home/images/icn_img5_on.png" alt="">
+                                            </div>
+                                            <p>联系我们</p>
+                                        </a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i></i>
+                    <a href="https://app.bjjttec.com/" target="_blank" class="a1">建通云</a>
+                </li>
+            </ul>
+            <a href="javascript:;" class="m-navbtn">
+                <em class="em1"></em>
+                <em class="em2"></em>
+                <em class="em3"></em>
+            </a>
+            <if condition="$seo['lxtel'] neq ''">
+            	<div class="tel">{$seo.lxtel}</div>
+        	</if>
+        </div>
+    </div>
+</div>
